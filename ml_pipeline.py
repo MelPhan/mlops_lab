@@ -16,7 +16,7 @@ print("Missing values in the dataset:\n", data.isnull().sum())
 
 import seaborn as sns
 sns.pairplot(data, hue='species', markers=["o", "s", "D"])
-plt.show() 
+plt.show()
 
 sns.boxplot(x='species', y='sepal_length', data=data)
 plt.title('Sepal Length Distribution by Species')
@@ -35,7 +35,7 @@ print(data[['sepal_area', 'petal_area']].head())
 
 from sklearn.preprocessing import StandardScaler
 # Select numerical columns
-numerical_cols = ['sepal_length', 'sepal_width', 'petal_length', 
+numerical_cols = ['sepal_length', 'sepal_width', 'petal_length',
 'petal_width', 'sepal_area', 'petal_area']
 # Apply Standard Scaling
 scaler = StandardScaler()
@@ -50,11 +50,11 @@ from sklearn.model_selection import train_test_split
 X = data.drop('species', axis=1)
 y = data['species']
 # Split into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, 
+X_train, X_test, y_train, y_test = train_test_split(X, y,
 test_size=0.2, random_state=42)
 # Build an ML pipeline with preprocessing and model training steps
 pipeline = Pipeline(steps=[
- ('classifier', RandomForestClassifier(n_estimators=100, 
+ ('classifier', RandomForestClassifier(n_estimators=100,
 random_state=42))
 ])
 # Train the pipeline
